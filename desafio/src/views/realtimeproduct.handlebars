@@ -1,111 +1,64 @@
-{{!-- <!DOCTYPE html>
-<html>
-
-<head>
-    <title>Lista de Productos</title>
-    <link rel="stylesheet" href="{{ style }}">
-</head>
-
-<body>
-    <h3>Productos Mostrados JavaScript y SOCKET.IO se actualiza solo al agregar o borrar un producto.</h3>
-    <div class="container-body">
-
-        <div class="productListContainer" id="productList2">
-            <div class="title-containers">
-                <ul class="productListUL">
-                    <li class="product-li">
-                        <div class="productDiv">Product</div>
-                        <div class="productDiv">Price</div>
-                        <div class="productDiv">Stock</div>
-                        <div class="productDiv">Description</div>
-                        <div class="productDiv">Product Code</div>
-                        <div class="productDiv">Category</div>
-                        <div class="productDiv">Action</div>
-                       
-                    </li>
-                </ul>
-               
-                <ul id="productListUL" class="productListUL">
-
-                </ul>
-            </div>
-
-        </div>
-        <form id="product-form" onsubmit=getData() class="form-addproduct">
-            <label>Nombre del Producto:</label>
-            <input id="product-title" type="text" class="inputt" placeholder="Ingrese un producto" />
-            <label>Descripcion del Producto:</label>
-            <input id="product-descr" type="text" class="inputt" placeholder="Ingrese una descripcion" />
-            <label>Precio del Producto:</label>
-            <input id="product-price" type="number" class="inputt" placeholder="Ingrese un precio" />
-            <label>Stock del Producto:</label>
-            <input id="product-stock" type="number" class="inputt" placeholder="Ingrese un Stock" />
-            <label>Ingrese el codigo de Producto:</label>
-            <input id="product-pcode" type="text" class="inputt" placeholder="Ingrese la categoria del Producto" />
-            <label>Ingrese la categoria del Producto:</label>
-            <input id="product-category" type="text" class="inputt" placeholder="Ingrese la categoria del Producto" />
-            <label>Ingrese la categoria del Producto:</label>
-            <input id="product-file" type="file" placeholder="Ingrese la categoria del Producto" />
-            <button type="submit" class="btn-addproduct">Agregar</button>
-        </form>
-    </div>
-</body>
-<script src="/socket.io/socket.io.js"></script>
-<script src="/js/index.js"></script>
-
-</html> --}}
-
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Productos en Tiempo Real</title>
     <link rel="stylesheet" href="{{ style }}">
 </head>
-
 <body>
     <section>
         <h2>Productos en Tiempo Real</h2>
         <div class="container-body">
+
+          
             <div class="productListContainer" id="productList2">
-                <header>
+                <header class="title-containers">
                     <h3>Lista de Productos</h3>
                 </header>
-                <ul id="productListUL" class="productListUL">
-                    <!-- Los productos se añadirán dinámicamente aquí -->
-                </ul>
+               
+                <table id="productListTable" class="product-list-table">
+                    <thead>
+                        <tr>
+                            <th>Título</th>
+                            <th>Precio</th>
+                            <th>Stock</th>
+                            <th>Descripción</th>
+                            <th>Código</th>
+                            <th>Categoría</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Los productos existentes se inyectarán aquí por Socket.IO -->
+                    </tbody>
+                </table>
             </div>
-            <form id="product-form" onsubmit="getData(event)" class="form-addproduct">
-                <div class="form-group">
-                    <label for="product-title">Nombre del Producto:</label>
-                    <input id="product-title" type="text" class="inputt" placeholder="Ingrese un producto" required>
-                </div>
-                <div class="form-group">
-                    <label for="product-descr">Descripción del Producto:</label>
-                    <input id="product-descr" type="text" class="inputt" placeholder="Ingrese una descripción" required>
-                </div>
-                <div class="form-group">
-                    <label for="product-price">Precio del Producto:</label>
-                    <input id="product-price" type="number" class="inputt" placeholder="Ingrese un precio" required>
-                </div>
-                <div class="form-group">
-                    <label for="product-stock">Stock del Producto:</label>
-                    <input id="product-stock" type="number" class="inputt" placeholder="Ingrese el stock" required>
-                </div>
-                <div class="form-group">
-                    <label for="product-pcode">Código del Producto:</label>
-                    <input id="product-pcode" type="text" class="inputt" placeholder="Ingrese el código del producto" required>
-                </div>
-                <div class="form-group">
-                    <label for="product-category">Categoría del Producto:</label>
-                    <input id="product-category" type="text" class="inputt" placeholder="Ingrese la categoría del Producto" required>
-                </div>
-                <div class="form-group">
-                    <label for="product-file">Imagen del Producto:</label>
-                    <input id="product-file" type="file" class="inputt">
-                </div>
+                      
+            </div>
+
+            <form id="product-form" class="form-addproduct">
+                <label for="product-title">Nombre del Producto:</label>
+                <input id="product-title" type="text" class="inputt" placeholder="Ingrese el nombre del producto" required>
+
+                <label for="product-descr">Descripción del Producto:</label>
+                <input id="product-descr" type="text" class="inputt" placeholder="Ingrese una descripción" required>
+
+                <label for="product-price">Precio del Producto:</label>
+                <input id="product-price" type="number" class="inputt" placeholder="Ingrese un precio" required>
+
+                <label for="product-stock">Stock del Producto:</label>
+                <input id="product-stock" type="number" class="inputt" placeholder="Ingrese el stock" required>
+
+                <label for="product-pcode">Código del Producto:</label>
+                <input id="product-pcode" type="text" class="inputt" placeholder="Ingrese el código del producto" required>
+
+                <label for="product-category">Categoría del Producto:</label>
+                <input id="product-category" type="text" class="inputt" placeholder="Ingrese la categoría del Producto" required>
+
+                <label for="product-file">Imagen del Producto:</label>
+                <input id="product-file" type="file" class="inputt">
+                
                 <button type="submit" class="btn-addproduct">Agregar Producto</button>
             </form>
         </div>
@@ -113,5 +66,7 @@
     <script src="/socket.io/socket.io.js"></script>
     <script src="/js/index.js"></script>
 </body>
-
 </html>
+
+               
+

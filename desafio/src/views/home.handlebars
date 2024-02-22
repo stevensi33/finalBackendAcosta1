@@ -1,4 +1,4 @@
- <section>
+ {{!-- <section>
     <h2>Productos Mostrados por request GET.</h2>
     <div class="productListContainer2">
         {{#if productList.length}}
@@ -21,4 +21,32 @@
             <p>No hay productos para mostrar.</p>
         {{/if}}
     </div>
+</section> --}}
+
+
+<!-- home.handlebars -->
+
+<section>
+    <h2>Productos Mostrados por request GET</h2>
+    <div class="productListContainer">
+        {{#if productList.length}}
+            <ul id="productListUL" class="productListUL">
+                {{#each productList}}
+                <li class="product-li">
+                    <article class="card-product">
+                        <h3>{{this.title}}</h3>
+                        <p>{{this.description}}</p>
+                        <p>Precio: ${{this.price}}</p>
+                        <p>Stock: {{this.stock}}</p>
+                        <p>Código: {{this.code}}</p>
+                        <p>Categoría: {{this.category}}</p>
+                    </article>
+                </li>
+                {{/each}}
+            </ul>
+        {{else}}
+            <p>No hay productos para mostrar</p>
+        {{/if}}
+    </div>
 </section>
+

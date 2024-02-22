@@ -20,7 +20,7 @@ server.set('view engine', 'handlebars');
 server.use(express.static(__dirname + '/public/'));
 server.use('/', viewRouter);
 
-const productManager = new ProductManager();
+const productManager = new ProductManager('./src/data/products.json');
 
 const httpServer = createServer(server);
 const socketServer = new Server(httpServer);

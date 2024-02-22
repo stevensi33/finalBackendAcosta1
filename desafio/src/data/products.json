@@ -28,5 +28,15 @@
     "status": true,
     "thumb": "/imagenes/thumbnails/WsT017.jpg",
     "id": 4
+  },
+  {
+    "title": "pepa",
+    "description": "pepas",
+    "code": "4521s",
+    "price": 200,
+    "stock": 5,
+    "category": "petess",
+    "thumb": "perro1.jpg",
+    "id": 5
   }
 ]
