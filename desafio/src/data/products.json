@@ -1,0 +1,32 @@
+[
+  {
+    "title": "test1",
+    "price": 500,
+    "code": "WsT022",
+    "stock": 5,
+    "description": "sombrero gris",
+    "status": true,
+    "thumb": "/imagenes/thumbnails/WsT017.jpg",
+    "id": 2
+  },
+  {
+    "title": "test3",
+    "price": 12000,
+    "code": "WsT021",
+    "stock": 10,
+    "description": "sombrero gris",
+    "status": true,
+    "thumb": "/imagenes/thumbnails/WsT017.jpg",
+    "id": 3
+  },
+  {
+    "title": "test5",
+    "price": 12000,
+    "code": "WsT021",
+    "stock": 10,
+    "description": "sombrero gris",
+    "status": true,
+    "thumb": "/imagenes/thumbnails/WsT017.jpg",
+    "id": 4
+  }
+]
